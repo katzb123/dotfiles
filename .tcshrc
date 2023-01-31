@@ -1,0 +1,28 @@
+if ($?prompt) then
+# ==================================================================
+#                       prompt shell variable
+#                       ---------------------
+# The string which is printed before reading each command from the
+# terminal.  Currently set to display hostname, and current working
+# directory.
+# ==================================================================
+set prompt = ">>%{\e[34;1m%}%n%{\e[0m%}%{\e[0;0m%}@%{\e[0m%}%{\e[35m%}%m%{\e[0m%}[%{\e[0;0m%}\!%{\e[0m%}]%{\e[31m%}%~%{\e[34;40;0m%}>>%{\e[0m%}  "
+
+# ==================================================================
+#                       rmstar shell variable
+#                       ---------------------
+# If set, the user is prompted before 'rm *' is executed.
+# ==================================================================
+set rmstar
+endif # interactive shell
+
+# ==================================================================
+# set up useful aliases
+# ==================================================================
+alias .. 'cd ..'
+alias l 'ls --color'
+alias cd "cd \!*; l;"
+alias bjobs 'jobs -p'
+alias bkill 'kill'
+alias reload 'source ~/.tcshrc'
+alias config '/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
